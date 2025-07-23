@@ -20,13 +20,13 @@ public class GridDriverManage {
 
         capabilities.setPlatform(Platform.ANY);
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("138.0.7204.169");
+        capabilities.setVersion("138.0.7204.158");
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.merge(capabilities);
 
         try {
-            driver=new RemoteWebDriver(new URL("http://192.168.1.27:4444"),chromeOptions);
+            driver=new RemoteWebDriver(new URL("http://192.168.1.5:4444"),chromeOptions);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -39,12 +39,13 @@ public class GridDriverManage {
 
         capabilities.setPlatform(Platform.ANY);
         capabilities.setBrowserName("firefox");
-        capabilities.setVersion("140.0.4");
+        capabilities.setVersion("141.0");
+
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.merge(capabilities);
 
         try {
-            driver=new RemoteWebDriver(new URL("http://192.168.1.27:4444"),firefoxOptions);
+            driver=new RemoteWebDriver(new URL("http://192.168.1.5:4444"),firefoxOptions);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -63,7 +64,7 @@ public class GridDriverManage {
         edgeOptions.merge(capabilities);
 
         try {
-            driver=new RemoteWebDriver(new URL("http://192.168.1.27:4444"),edgeOptions);
+            driver=new RemoteWebDriver(new URL("http://192.168.1.5:4444"),edgeOptions);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -71,7 +72,10 @@ public class GridDriverManage {
 
         return driver;
     }
+
+
+
+
+
+
 }
-
-
-

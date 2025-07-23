@@ -2,40 +2,42 @@ package stepDefinitions;
 
 import manage.GridDriverManage;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import java.net.MalformedURLException;
-
 public class Grid02 {
-    GridDriverManage manage = new GridDriverManage();
-    WebDriver driver;
+
+
+    GridDriverManage manage=new GridDriverManage();
+    static WebDriver driver;
+
+
+    // java -jar selenium-server-4.34.0.jar standalone
+
 
     @Test
-    public void chromeTest() throws MalformedURLException {
-        driver = manage.setupChromeDriver();
+    void chromeTest(){
+
+        driver= manage.setupChromeDriver();
         driver.get("https://www.babayigit.net");
-        System.out.println("Chrome Title: " + driver.getTitle());
+        System.out.println(driver.getTitle());
+        driver.quit();
+
     }
 
     @Test
-    public void firefoxTest() throws MalformedURLException {
-        driver = manage.setupFirefoxDriver();
-        driver.get("https://www.amazon.com/");
-        System.out.println("Firefox Title: " + driver.getTitle());
+    void firefoxTest(){
+        driver= manage.setupFirefoxDriver();
+        driver.get("https://www.wisequarter.com");
+        System.out.println(driver.getTitle());
     }
 
     @Test
-    public void edgeDriverTest() throws MalformedURLException {
-        driver = manage.setupEdgeDriver();
-        driver.get("https://www.amazon.com/");
-        System.out.println("Edge Title: " + driver.getTitle());
+    void setupEdgeDriver(){
+        driver= manage.setupEdgeDriver();
+        driver.get("https://www.amazon.com.tr");
+        System.out.println(driver.getTitle());
+        driver.quit();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+
 }
